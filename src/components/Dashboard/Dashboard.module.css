@@ -1,0 +1,41 @@
+.dashboardContainer {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  height: 100%;
+  padding-top: 70px;
+  justify-content: start;
+  align-items: center;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding-left: 20px;
+  gap: 10px;
+  font-size: 18px;
+  height: 70px;
+  width: 200px;
+  color: #a4a4a4;
+}
+
+.item:hover {
+  color: #5c8bef;
+  background-color: #f9faff;
+  border-radius: 10px;
+}
+
+.item a {
+  color: #a4a4a4;
+}
+
+.item a:hover {
+  color: #5c8bef;
+}
+
+svg {
+  height: 20px;
+  width: 20px;
+}

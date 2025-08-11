@@ -1,0 +1,24 @@
+div.headerContainer {
+  height: 100px;
+  width: 100%;
+  padding-left: 50px;
+  display: flex;
+  border-bottom: 1px solid #f8f8f8;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+h1 {
+  color: #000;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  height: 100%;
+}
+
+span {
+  color: #568cf1;
+}
