@@ -19,9 +19,6 @@
         "isolatedModules": true,
         "noEmit": true,
         "jsx": "react",
-        "rules": {
-            "@typescript-eslint/explicit-module-boundary-types": "off"
-        },
         "paths": {
             "@/*": [
                 "./src/*"

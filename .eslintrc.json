@@ -1,32 +1,26 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true,
-        "jest": true
-    },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:react-hooks/recommended",
-        "plugin:jsx-a11y/recommended",
-        "prettier"
-    ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
+        "ecmaVersion": 2021,
+        "sourceType": "module",
         "ecmaFeatures": {
             "jsx": true
         },
-        "ecmaVersion": 12,
-        "sourceType": "module",
         "project": "./tsconfig.json"
     },
     "plugins": [
         "react",
         "@typescript-eslint",
+        "react",
         "prettier"
     ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended"
+    ],
     "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": "off",
         "react/react-in-jsx-scope": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/no-explicit-any": "warn",
