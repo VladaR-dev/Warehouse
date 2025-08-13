@@ -8,7 +8,7 @@ export const Dashboard = () => {
   return (
     <div className={s.dashboardContainer}>
       <Link to={'/warehouses'}>
-        <div className={`${s.item} ${s.itemWarehouses}` }>
+        <div className={`${s.item} ${s.itemWarehouses}`}>
           <MdShelves />
           <p>Склады</p>
         </div>

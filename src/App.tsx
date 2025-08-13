@@ -12,18 +12,9 @@ export const App = () => {
         <Dashboard />
         <div className="pagesContainer">
           <Routes>
-            <Route
-              path="/"
-              element={<Main />}
-            />
-            <Route
-              path="/warehouses"
-              element={<Warehouses />}
-            />
-            <Route
-              path="/products"
-              element={<Products />}
-            />
+            <Route path="/" element={<Main />} />
+            <Route path="/warehouses" element={<Warehouses />} />
+            <Route path="/products" element={<Products />} />
           </Routes>
         </div>
       </div>

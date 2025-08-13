@@ -12,6 +12,6 @@ if (container) {
   root.render(
     <Router>
       <App />
-    </Router>
+    </Router>,
   );
 }
