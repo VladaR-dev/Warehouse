@@ -1,0 +1,26 @@
+$colors: (
+    WHITE: #fff,
+    LIGHT_GRAY: #f8f8f8,
+    BLACK: #000,
+    BLUE: #568cf1,
+    GRAY_MEDIUM:#a4a4a4,
+    BLUE_PRIMARY: #5c8bef,
+    WHITE_LIGHT:#f9faff,
+);
+
+@function color($key) {
+    @if map-has-key($colors, $key) {
+        @return map-get($colors, $key);
+    }
+
+    @warn "Unknown `#{$key}` in $colors.";
+    @return null;
+}
+
+$WHITE: color(WHITE);
+$LIGHT_GRAY: color(LIGHT_GRAY);
+$BLACK: color(BLACK);
+$BLUE: color(BLUE);
+$GRAY_MEDIUM: color(GRAY_MEDIUM);
+$BLUE_PRIMARY: color(BLUE_PRIMARY);
+$WHITE_LIGHT: color(WHITE_LIGHT);

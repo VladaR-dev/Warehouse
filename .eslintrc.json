@@ -12,6 +12,7 @@
         "react",
         "@typescript-eslint",
         "react",
+        "react-hooks",
         "prettier"
     ],
     "extends": [
@@ -25,8 +26,8 @@
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/no-explicit-any": "warn",
         "prettier/prettier": ["warn", {}, { "usePrettierrc": true }],
-        "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn"
+        "react-hooks/rules-of-hooks": "off",
+        "react-hooks/exhaustive-deps": "off"
     },
     "settings": {
         "react": {

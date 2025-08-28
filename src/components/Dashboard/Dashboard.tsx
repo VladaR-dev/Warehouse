@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MdShelves } from 'react-icons/md';
 import { GiShinyApple } from 'react-icons/gi';
-import s from './Dashboard.module.css';
+import s from './Dashboard.module.scss';
 
 export const Dashboard = () => {
   return (

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { Header, Dashboard } from './components';
 import { Main, Products, Warehouses } from './pages';
-import './App.css';
+import './App.scss';
 
 export const App = () => {
   return (

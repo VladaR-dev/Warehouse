@@ -1,14 +1,15 @@
 import React from 'react';
+import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
-import s from './Header.module.css';
+import s from './Header.module.scss';
 
 export const Header = () => {
   return (
     <div className={s.headerContainer}>
       <Link to="/">
-        <h1>
+        <Typography variant="h1" gutterBottom>
           Мой<span>склад</span>
-        </h1>
+        </Typography>
       </Link>
     </div>
   );
