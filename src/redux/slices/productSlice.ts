@@ -1,21 +1,18 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface Product {  //Какие еще нужны параметры?
+export interface Product {
   name: string;
   id: string | number;
   quantity: number;
 }
 
 export interface ProductState {
-  //Нужен ли loading?
   items: Product[];
-  loading: boolean;
   selectedProduct: Product | null;
 }
 
 const initialState: ProductState = {
   items: [],
-  loading: false,
   selectedProduct: null,
 };
 

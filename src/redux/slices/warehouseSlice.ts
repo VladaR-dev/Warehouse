@@ -1,22 +1,22 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Product } from '@/redux/slices/productSlice';
 
 export interface Warehouse {
   //Какие еще нужны параметры?
   name: string;
   id: string | number;
+  products: Product[];
 }
 
-export interface WarehouseState {
+export interface WarehousesState {
   //Нужен ли loading?
   items: Warehouse[];
-  loading: boolean;
-  selectedWarehouse: Warehouse | null;
+  selectedWarehouseId: string | null;
 }
 
-const initialState: WarehouseState = {
+const initialState: WarehousesState = {
   items: [],
-  loading: false,
-  selectedWarehouse: null,
+  selectedWarehouseId: null,
 };
 //Так как у нас нет асинхронных операций extraReducer нет надобности использовать?
 export const warehouseSlice = createSlice({
@@ -31,7 +31,7 @@ export const warehouseSlice = createSlice({
     }, //Доработаю позже по логике
     removeWarehouse: (state, action) => {
       return;
-    },//Доработаю позже по логике
+    }, //Доработаю позже по логике
   },
 });
 
