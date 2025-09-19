@@ -1,0 +1,76 @@
+@use '../../constants/colors' as *;
+
+.warehousesContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 1152px;
+
+  .warehouseMain {
+    width: 100%;
+
+    .titleWarehouses {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      button {
+        height: 50px;
+        border-radius: 10px;
+      }
+    }
+
+    .warehouseBlock {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+
+      .warehouseItem {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $WHITE;
+        height: 70px;
+        padding: 0 25px;
+        border-radius: 10px;
+
+        .warehouseButtons {
+          display: flex;
+          gap: 20px;
+
+          button {
+            border-radius: 10px;
+          }
+
+          button:hover {
+            background-color: $BLUE;
+            color: $WHITE;
+            transition: 0.5s;
+          }
+        }
+      }
+    }
+  }
+
+  .modalChildren {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 500px;
+
+    button {
+      width: 100%;
+      height: 56px;
+      border-radius: 12px;
+    }
+  }
+}
