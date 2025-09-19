@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const Warehouse = (props) => {
+export const Warehouse = () => {
   return <div></div>;
 };

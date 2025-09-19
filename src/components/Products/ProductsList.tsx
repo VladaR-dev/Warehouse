@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const ProductsList = (props) => {
+export const ProductsList = () => {
   return <div></div>;
 };

@@ -15,7 +15,7 @@ export const Warehouses: React.FC = () => {
   const pagination = useSelector((state: RootState) => state.pagination);
   const dispatch = useDispatch();
 
-  const [isActive, setIsActive] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [text, setText] = useState<string>('');
 
   const displayedItems = useMemo(() => {
@@ -38,8 +38,13 @@ export const Warehouses: React.FC = () => {
         }),
       );
       setText('');
-      setIsActive(false);
+      setIsModalOpen(false);
     }
+  };
+
+  const handleModalClose = () => {
+    setText('');
+    setIsModalOpen(false);
   };
 
   const handlePageChange = (event: React.ChangeEvent<unknown>, page: number) => {
@@ -56,13 +61,13 @@ export const Warehouses: React.FC = () => {
           <CustomButton
             variant="contained"
             name="Добавить склад"
-            onClick={() => setIsActive(true)}
+            onClick={() => setIsModalOpen(true)}
           />
         </div>
         <div className={s.warehouseBlock}>
-          {displayedItems.length === 0 ? (
-            <div> Нет ни одного склада</div>
-          ) : (
+          {displayedItems.length === 0 && <div> Нет ни одного склада</div>}
+
+          {displayedItems.length > 0 &&
             displayedItems.map(({ id, name }: Warehouse) => {
               return (
                 <div key={id} className={s.warehouseItem}>
@@ -73,8 +78,7 @@ export const Warehouses: React.FC = () => {
                   </div>
                 </div>
               );
-            })
-          )}
+            })}
         </div>
       </div>
       {pagination.totalPages > 1 && (
@@ -90,29 +94,29 @@ export const Warehouses: React.FC = () => {
         </Box>
       )}
 
-      <Modal active={isActive} setActive={setIsActive}>
-        <div className={s.modalChildren}>
-          <Typography variant="h4" gutterBottom>
-            Добавить склад
-          </Typography>
-          <TextField
-            id="outlined-basic"
-            label="Название склада"
-            variant="outlined"
-            sx={{
-              width: '100%',
-              borderRadius: '12px',
-            }}
-            value={text}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setText(e.target.value)}
-          />
-          <CustomButton
-            variant="contained"
-            name="Добавить склад"
-            onClick={() => handleAddWarehouse()}
-          />
-        </div>
-      </Modal>
+      {isModalOpen && (
+        <Modal
+          open={isModalOpen}
+          onClose={handleModalClose}
+          onSubmit={handleAddWarehouse}
+          submitButtonText="Добавить склад"
+          modalTitle="Добавить склад"
+        >
+          <div className={s.modalChildren}>
+            <TextField
+              id="outlined-basic"
+              label="Название склада"
+              variant="outlined"
+              sx={{
+                width: '400px',
+                borderRadius: '12px',
+              }}
+              value={text}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setText(e.target.value)}
+            />
+          </div>
+        </Modal>
+      )}
     </div>
   );
 };
