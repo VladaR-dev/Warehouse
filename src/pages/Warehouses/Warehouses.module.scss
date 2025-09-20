@@ -55,6 +55,11 @@
             transition: 0.5s;
           }
         }
+          a {
+              text-decoration: none;
+              color: $BLACK;
+              font-size: 18px;
+          }
       }
     }
   }

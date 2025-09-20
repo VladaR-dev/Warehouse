@@ -26,12 +26,24 @@ export const warehouseSlice = createSlice({
     addWarehouse: (state, action: PayloadAction<Warehouse>) => {
       state.items.push(action.payload);
     },
-    editWarehouse: (state, action) => {
-      return;
-    }, //Доработаю позже по логике
-    removeWarehouse: (state, action) => {
-      return;
-    }, //Доработаю позже по логике
+    editWarehouse: (
+      state,
+      action: PayloadAction<{ id: string | number; changes: Partial<Warehouse> }>,
+    ) => {
+      const { id, changes } = action.payload;
+      const warehouse = state.items.find((warehouse) => warehouse.id === id);
+      if (warehouse) {
+        state.items = state.items.map((item) =>
+          item.id === id
+            ? { ...item, ...changes } // ← создаем новый объект
+            : item,
+        );
+      }
+    },
+    removeWarehouse: (state, action: PayloadAction<string | number>) => {
+      const warehouseId = action.payload;
+      state.items = state.items.filter(({ id }) => id !== warehouseId);
+    },
   },
 });
 
