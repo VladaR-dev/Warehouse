@@ -9,7 +9,7 @@ export const Dashboard = () => {
   return (
     <div className={s.dashboardContainer}>
       <Link to={'/warehouses'}>
-        <div className ={cn(s.item, s.itemWarehouses)}>
+        <div className={cn(s.item, s.itemWarehouses)}>
           <MdShelves />
           <p>Склады</p>
         </div>
