@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Header, Dashboard, Warehouse } from './components';
+import { Header, Dashboard, WarehouseCard } from 'app/components';
 import { Products, Warehouses } from './pages';
 import './App.scss';
 
@@ -14,7 +14,7 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<Warehouses />} />
             <Route path="/warehouses" element={<Warehouses />} />
-            <Route path="/warehouses:id" element={<Warehouse />} />
+            <Route path="/warehouses/:id" element={<WarehouseCard />} />
             <Route path="/products" element={<Products />} />
           </Routes>
         </div>

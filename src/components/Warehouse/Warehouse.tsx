@@ -1,5 +1,0 @@
-import React from 'react';
-
-export const Warehouse = () => {
-  return <div></div>;
-};

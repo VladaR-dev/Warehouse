@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../redux/store';
-import { setPage, setItemsPerPage, setTotalItems } from '../redux/slices/paginationSlice';
+import { RootState } from 'app/redux/store';
+import { setPage, setItemsPerPage, setTotalItems } from 'app/redux/slices/paginationSlice';
 
 export const usePagination = () => {
   const dispatch = useDispatch();
