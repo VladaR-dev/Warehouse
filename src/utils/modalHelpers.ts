@@ -1,7 +1,7 @@
-export const getModalTitle = (modalType: string | null): string => {
+export const getModalTitle = (modalType: string | null, isProduct = false): string => {
   switch (modalType) {
     case 'add':
-      return 'Добавить склад';
+        return isProduct ? 'Добавить товар' : 'Добавить склад';
     case 'edit':
       return 'Редактировать склад';
     case 'delete':

@@ -4,3 +4,4 @@ export * from './Button';
 export * from './Modal';
 export * from './Warehouse';
 export * from './WarehousesList';
+export * from './Products';

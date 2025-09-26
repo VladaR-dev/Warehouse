@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextField, Typography } from '@mui/material';
-import { ModalState } from 'app/hooks/useWarehouseModal';
+import { ModalState } from 'app/hooks/useModal';
 
 interface Props {
   modalState: ModalState;
@@ -28,7 +28,7 @@ export const WarehousesModalContent: React.FC<Props> = ({ modalState, text, setT
       return (
         <div className="modalChildren">
           <Typography variant="body1">
-            Вы уверены, что хотите удалить склад `{modalState.data?.warehouseName}`?
+            Вы уверены, что хотите удалить склад `{modalState.data?.name}`?
           </Typography>
           <Typography variant="body2" color="textSecondary" sx={{ mt: 1 }}>
             Это действие нельзя отменить.

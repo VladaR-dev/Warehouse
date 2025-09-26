@@ -1,0 +1,37 @@
+.productsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+  .productsMain {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    .productsTitle {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .inputsMui {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        button {
+          height: 56px;
+          border-radius: 10px;
+        }
+
+        input {
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+}
