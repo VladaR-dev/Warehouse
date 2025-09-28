@@ -1,6 +1,7 @@
 import React from 'react';
 import { TextField, Typography } from '@mui/material';
 import { ModalState } from 'app/hooks/useModal';
+import s from './ModalContent.module.scss';
 
 interface Props {
   modalState: ModalState;
@@ -13,7 +14,7 @@ export const WarehousesModalContent: React.FC<Props> = ({ modalState, text, setT
     case 'add':
     case 'edit':
       return (
-        <div className="modalChildren">
+        <div className={s.modalChildren}>
           <TextField
             id="outlined-basic"
             label="Название склада"
@@ -26,7 +27,7 @@ export const WarehousesModalContent: React.FC<Props> = ({ modalState, text, setT
       );
     case 'delete':
       return (
-        <div className="modalChildren">
+        <div className={s.modalChildren}>
           <Typography variant="body1">
             Вы уверены, что хотите удалить склад `{modalState.data?.name}`?
           </Typography>

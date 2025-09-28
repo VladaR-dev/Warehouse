@@ -1,5 +1,5 @@
 import React from 'react';
-import {CustomButton} from "app/components";
+import { CustomButton } from 'app/components';
 import s from './ProductsList.module.scss';
 
 interface ProductsListProps {
@@ -10,10 +10,16 @@ interface ProductsListProps {
 }
 
 export const ProductsList: React.FC<ProductsListProps> = ({ id, name, openDeleteModal }) => {
-  return <div className={s.productItem}>
+  return (
+    <>
       <div className={s.item}>
-          <div className={s.nameItem}>{name}</div>
-          <CustomButton variant={"outlined"} name='Удалить' onClick={()=> openDeleteModal(id, name)}/>
+        <div className={s.nameItem}>{name}</div>
+        <CustomButton
+          variant={'outlined'}
+          name="Удалить"
+          onClick={() => openDeleteModal(id, name)}
+        />
       </div>
-  </div>;
+    </>
+  );
 };

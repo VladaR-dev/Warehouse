@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { BaseModalData, useModal } from './useModal';
 
 export const useProductsModal = () => {
-  const { modalState, text, setText, isModalOpen, openModal, closeModal } =
+  const { modalState, text, setText, isModalOpen, openModal, closeModal, quantity, setQuantity } =
     useModal<BaseModalData>();
 
   const openAddModal = useCallback(() => openModal('add'), [openModal]);
@@ -22,5 +22,7 @@ export const useProductsModal = () => {
     openAddModal,
     openDeleteModal,
     closeModal,
+    quantity,
+    setQuantity,
   };
 };

@@ -19,20 +19,20 @@ export const useProductsActions = () => {
   );
 
   const handleAddProducts = useCallback(
-    (text: string) => {
+    (text: string, quantity: number) => {
       const hasDuplicate = searchDuplicate(text);
       if (text.trim() && !hasDuplicate) {
         dispatch(
           addProduct({
             name: text.trim(),
             id: uuidv4(),
-            quantity: 0,
+            quantity: Number(quantity),
           }),
         );
         return true;
       }
       if (hasDuplicate) {
-        toast.error('Склад с таким названием уже существует');
+        toast.error('Товар с таким названием уже существует');
       }
       return false;
     },

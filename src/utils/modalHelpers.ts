@@ -1,11 +1,11 @@
 export const getModalTitle = (modalType: string | null, isProduct = false): string => {
   switch (modalType) {
     case 'add':
-        return isProduct ? 'Добавить товар' : 'Добавить склад';
+      return isProduct ? 'Добавить товар' : 'Добавить склад';
     case 'edit':
       return 'Редактировать склад';
     case 'delete':
-      return 'Подтверждение удаления';
+      return isProduct ? 'Удалить товар' : 'Удалить склад';
     default:
       return '';
   }

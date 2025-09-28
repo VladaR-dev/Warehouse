@@ -18,8 +18,17 @@ export const Products = () => {
   const { pagination, dispatch } = usePaginationProducts();
   const products = useSelector((state: RootState) => state.product);
   const { displayedItems } = usePagination(products.items);
-  const { modalState, text, setText, isModalOpen, openAddModal, openDeleteModal, closeModal } =
-    useProductsModal();
+  const {
+    modalState,
+    text,
+    setText,
+    isModalOpen,
+    openAddModal,
+    openDeleteModal,
+    closeModal,
+    quantity,
+    setQuantity,
+  } = useProductsModal();
   const { handleAddProducts, handleDeleteProducts } = useProductsActions();
   const handlePageChange = (event: React.ChangeEvent<unknown>, page: number) => {
     dispatch(setPage(page));
@@ -30,7 +39,7 @@ export const Products = () => {
 
     switch (modalState.type) {
       case 'add':
-        success = handleAddProducts(text);
+        success = handleAddProducts(text, Number(quantity));
         break;
       case 'delete':
         if (modalState.data?.id) {
@@ -60,23 +69,21 @@ export const Products = () => {
               onClick={openAddModal}
             />
           </div>
-
-
         </div>
-          <div className={s.productsBlock}>
-              {displayedItems.length === 0 && <div> Товаров нет</div>}
-              {displayedItems.length > 0 &&
-                  displayedItems.map(({ id, name, quantity }: Product) => (
-                      <div key={id} className={s.warehouseItem}>
-                          <ProductsList
-                              id={id}
-                              name={name}
-                              quantity={quantity}
-                              openDeleteModal={openDeleteModal}
-                          />
-                      </div>
-                  ))}
-          </div>
+        <div className={s.productsBlock}>
+          {displayedItems.length === 0 && <div> Товаров нет</div>}
+          {displayedItems.length > 0 &&
+            displayedItems.map(({ id, name, quantity }: Product) => (
+              <div key={id} className={s.productsItem}>
+                <ProductsList
+                  id={id}
+                  name={name}
+                  quantity={quantity}
+                  openDeleteModal={openDeleteModal}
+                />
+              </div>
+            ))}
+        </div>
       </div>
       {pagination.totalPages > 1 && (
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}>
@@ -97,7 +104,13 @@ export const Products = () => {
         submitButtonText={getSubmitButtonText(modalState.type)}
         modalTitle={getModalTitle(modalState.type, true)}
       >
-        <ProductsModalContent modalState={modalState} text={text} setText={setText} />
+        <ProductsModalContent
+          modalState={modalState}
+          text={text}
+          setText={setText}
+          quantity={Number(quantity)}
+          setQuantity={setQuantity}
+        />
       </Modal>
     </div>
   );
