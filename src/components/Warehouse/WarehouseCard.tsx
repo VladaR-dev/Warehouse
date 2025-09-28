@@ -30,16 +30,8 @@ export const WarehouseCard = () => {
           {currentWarehouse.name} склад
         </Typography>
         <div className={s.buttons}>
-          <CustomButton
-            variant="outlined"
-            name="Переместить товары"
-            onClick={() => null}
-          />
-          <CustomButton
-            variant="contained"
-            name="Добавить товар"
-            onClick={() => null}
-          />
+          <CustomButton variant="outlined" name="Переместить товары" onClick={() => null} />
+          <CustomButton variant="contained" name="Добавить товар" onClick={() => null} />
         </div>
       </div>
 

@@ -1,16 +1,25 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Typography, Pagination, Box } from '@mui/material';
 import { Toaster } from 'react-hot-toast';
 
 import { WarehouseType } from 'app/redux/slices/warehouseSlice';
 import { setPage } from 'app/redux/slices/paginationSlice';
-import { useWarehouses, useWarehouseModal, useWarehouseActions } from 'app/hooks';
+import {
+  usePaginationWarehouse,
+  useWarehouseModal,
+  useWarehouseActions,
+  usePagination,
+} from 'app/hooks';
 import { WarehousesModalContent, CustomButton, Modal, WarehousesList } from 'app/components';
 import { getModalTitle, getSubmitButtonText } from 'app/utils';
 import s from './Warehouses.module.scss';
+import { RootState } from 'app/redux/store';
 
 export const Warehouses: React.FC = () => {
-  const { pagination, displayedItems, dispatch } = useWarehouses();
+  const { pagination, dispatch } = usePaginationWarehouse();
+  const warehouses = useSelector((state: RootState) => state.warehouse);
+  const { displayedItems } = usePagination(warehouses.items);
   const {
     modalState,
     text,
@@ -35,13 +44,13 @@ export const Warehouses: React.FC = () => {
         success = handleAddWarehouse(text);
         break;
       case 'edit':
-        if (modalState.data?.warehouseId) {
-          success = handleEditWarehouse(modalState.data.warehouseId, text);
+        if (modalState.data?.id) {
+          success = handleEditWarehouse(modalState.data.id, text);
         }
         break;
       case 'delete':
-        if (modalState.data?.warehouseId) {
-          success = handleDeleteWarehouse(modalState.data.warehouseId);
+        if (modalState.data?.id) {
+          success = handleDeleteWarehouse(modalState.data.id);
         }
         break;
     }
@@ -95,7 +104,7 @@ export const Warehouses: React.FC = () => {
         onClose={closeModal}
         onSubmit={handleSubmit}
         submitButtonText={getSubmitButtonText(modalState.type)}
-        modalTitle={getModalTitle(modalState.type)}
+        modalTitle={getModalTitle(modalState.type, false)}
       >
         <WarehousesModalContent modalState={modalState} text={text} setText={setText} />
       </Modal>
