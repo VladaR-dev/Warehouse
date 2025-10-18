@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   TextField,
   Radio,
@@ -18,14 +18,14 @@ interface Props {
   setQuantity: (quantity: number) => void;
 }
 
-export const ProductsModalContent: React.FC<Props> = ({
+export const ProductsModalContent = ({
   modalState,
   text,
   setText,
   quantity,
   setQuantity,
-}) => {
-  const [deleteOption, setDeleteOption] = React.useState<'all' | 'partial'>('all');
+}: Props) => {
+  const [deleteOption, setDeleteOption] = useState<'all' | 'partial'>('all');
   console.log('modalState', modalState);
 
   const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {

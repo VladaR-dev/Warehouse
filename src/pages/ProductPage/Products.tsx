@@ -1,23 +1,19 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { Typography, TextField, Box, Pagination } from '@mui/material';
 import { CustomButton, Modal, ProductsList, ProductsModalContent } from 'app/components';
 import {
-  usePagination,
   usePaginationProducts,
   useProductsModal,
   useProductsActions,
 } from 'app/hooks';
 import { getModalTitle, getSubmitButtonText } from 'app/utils';
-import { RootState } from 'app/redux/store';
 import { setPage } from 'app/redux/slices/paginationSlice';
 import { Product } from 'app/redux/slices/productSlice';
 import s from './Products.module.scss';
 
 export const Products = () => {
-  const { pagination, dispatch } = usePaginationProducts();
-  const products = useSelector((state: RootState) => state.product);
-  const { displayedItems } = usePagination(products.items);
+  const { pagination, dispatch, products } = usePaginationProducts();
+  const { displayedItems } = products;
   const {
     modalState,
     text,

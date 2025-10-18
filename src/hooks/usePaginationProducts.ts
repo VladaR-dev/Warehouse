@@ -4,7 +4,7 @@ import { usePagination } from 'app/hooks/usePagination';
 
 export const usePaginationProducts = () => {
   const products = useSelector((state: RootState) => state.product);
-  const { displayedItems, pagination, dispatch } = usePagination(products.items);
+  const { displayedItems, pagination, dispatch, handlePageChange, handleItemsPerPageChange } = usePagination(products.items);
 
   return {
     products: {
@@ -14,5 +14,7 @@ export const usePaginationProducts = () => {
     },
     pagination,
     dispatch,
+      handlePageChange,
+      handleItemsPerPageChange
   };
 };

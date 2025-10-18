@@ -9,7 +9,7 @@ interface Props {
   setText: (text: string) => void;
 }
 
-export const WarehousesModalContent: React.FC<Props> = ({ modalState, text, setText }) => {
+export const WarehousesModalContent = ({ modalState, text, setText }: Props) => {
   switch (modalState.type) {
     case 'add':
     case 'edit':
