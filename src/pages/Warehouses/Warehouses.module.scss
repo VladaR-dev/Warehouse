@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  width: 1152px;
+  width: 100%;
 
   .warehouseMain {
     width: 100%;
@@ -41,11 +41,11 @@
         padding: 0 25px;
         border-radius: 10px;
 
-          a {
-              text-decoration: none;
-              color: $BLACK;
-              font-size: 18px;
-          }
+        a {
+          text-decoration: none;
+          color: $BLACK;
+          font-size: 18px;
+        }
       }
     }
   }

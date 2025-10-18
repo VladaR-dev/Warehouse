@@ -13,14 +13,14 @@ interface ModalProps {
   modalTitle?: string;
 }
 
-export const Modal: React.FC<ModalProps> = ({
+export const Modal = ({
   open,
   children,
   submitButtonText = 'Отправить',
   onClose,
   onSubmit,
   modalTitle,
-}) => {
+}: ModalProps) => {
   const handleWrapperClick = (e: React.MouseEvent) => {
     e.stopPropagation();
   };

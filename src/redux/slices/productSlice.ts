@@ -8,12 +8,10 @@ export interface Product {
 
 export interface ProductState {
   items: Product[];
-  selectedProduct: Product | null;
 }
 
 const initialState: ProductState = {
   items: [],
-  selectedProduct: null,
 };
 
 export const productSlice = createSlice({
@@ -21,13 +19,19 @@ export const productSlice = createSlice({
   initialState,
   reducers: {
     addProduct: (state, action: PayloadAction<Product>) => {
-      return;
+      state.items.push(action.payload);
     },
-    deleteProduct: (state, action: PayloadAction<Product>) => {
-      return;
+    deleteProduct: (state, action: PayloadAction<string | number>) => {
+      const productId = action.payload;
+      state.items = state.items.filter(({ id }) => id !== productId);
+    },
+    searchProducts: (state, action: PayloadAction<string>) => {
+      state.items = state.items.filter(({ name }) =>
+        name.toLowerCase().includes(action.payload.toLowerCase()),
+      );
     },
   },
 });
 
-export const { addProduct, deleteProduct } = productSlice.actions;
+export const { addProduct, deleteProduct, searchProducts } = productSlice.actions;
 export default productSlice.reducer;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { TextField, Typography } from '@mui/material';
-import { ModalState } from 'app/hooks/useWarehouseModal';
+import { ModalState } from 'app/hooks/useModal';
+import s from './ModalContent.module.scss';
 
 interface Props {
   modalState: ModalState;
@@ -8,12 +9,12 @@ interface Props {
   setText: (text: string) => void;
 }
 
-export const WarehousesModalContent: React.FC<Props> = ({ modalState, text, setText }) => {
+export const WarehousesModalContent = ({ modalState, text, setText }: Props) => {
   switch (modalState.type) {
     case 'add':
     case 'edit':
       return (
-        <div className="modalChildren">
+        <div className={s.modalChildren}>
           <TextField
             id="outlined-basic"
             label="Название склада"
@@ -26,9 +27,9 @@ export const WarehousesModalContent: React.FC<Props> = ({ modalState, text, setT
       );
     case 'delete':
       return (
-        <div className="modalChildren">
+        <div className={s.modalChildren}>
           <Typography variant="body1">
-            Вы уверены, что хотите удалить склад `{modalState.data?.warehouseName}`?
+            Вы уверены, что хотите удалить склад `{modalState.data?.name}`?
           </Typography>
           <Typography variant="body2" color="textSecondary" sx={{ mt: 1 }}>
             Это действие нельзя отменить.
